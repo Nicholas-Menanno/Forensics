@@ -6,6 +6,7 @@ root = tree.getroot()
 
 # A work in progress Windows Event parser that requires a formatted xml windows security event log thats from https://github.com/frankwxu/digital-forensics-lab/blob/main/NIST_Data_Leakage_Case/
 # Iterate through all System elements
+# This basic script just outputs the windows security event logs 4608, 4634, 4624, 4625, 4647, 1100. This is just a learning tool not for actual use
 # EVENT 4608
 for system_element in root.findall(".//System"):
     event_id_element = system_element.find("EventID")
