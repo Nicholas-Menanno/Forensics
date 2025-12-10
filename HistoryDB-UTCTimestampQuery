@@ -1,0 +1,16 @@
+# SQL Query for Edge and Chrome History Databases to turn timestamps to UTC, with Year Month Day Hour Minute and Microsecond
+# You can run this query from SQL Lite DB Browser and then copy paste or export results
+
+SELECT
+    id,
+    url,
+    title,
+    visit_count,
+    typed_count,
+    strftime(
+        '%Y-%m-%d %H:%M:%f',
+        last_visit_time/1000000 - 11644473600,
+        'unixepoch',
+        'localtime'
+    ) AS visit_time
+FROM urls;
